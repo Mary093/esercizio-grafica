@@ -1,0 +1,81 @@
+.meals-container {
+    max-width: 800px; 
+    width: 90%;
+    margin: 5rem auto 8rem auto; 
+    background-color: white;
+    padding: 15px;
+    margin-top: 95px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); 
+  }
+  
+  .meals-container ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .meal-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; 
+  }
+  
+  .meal-item h3 {
+    margin: 0 0 0.25rem 0;
+  }
+  
+  .description {
+    font-style:oblique;
+    font-size: 15px;
+  }
+  
+  .price {
+    margin-top: 0.25rem;
+    font-weight: bold;
+    color: #ad5502; 
+    font-size: 1.25rem;
+  }
+  
+   .meal-item-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+  }
+  
+  .amount-control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .amount-control label {
+    font-weight: bold;
+    margin-right: 1rem;
+  }
+  
+  .amount-control input {
+    width: 3rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0.25rem;
+    text-align: center;
+  }
+  
+  .add-button {
+    font: inherit;
+    cursor: pointer;
+    background-color: rgb(138,43,6); 
+    border: 1px solid rgb(138,43,6);
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  
+  .add-button:hover,
+  .add-button:active {
+    background-color: #7a3a0e;
+    border-color: #7a3a0e;
+  }
