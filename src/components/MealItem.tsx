@@ -1,4 +1,5 @@
 import './MealList.css'; 
+import { Link } from "react-router-dom";
 
 interface MealItemProps {
   id: string;
@@ -7,7 +8,7 @@ interface MealItemProps {
   price: number;
 }
 
-function MealItem({ name, description, price }: MealItemProps) {
+function MealItem({ id, name, description, price }: MealItemProps) {
   const formattedPrice = `$${price.toFixed(2)}`; 
 
   return (
@@ -16,6 +17,10 @@ function MealItem({ name, description, price }: MealItemProps) {
         <h3>{name}</h3>
         <div className="description">{description}</div>
         <div className="price">{formattedPrice}</div>
+        {/* Link alla pagina prodotto */}
+        <Link to={`/prodotto/${id}`} className="details-link">
+          Vedi prodotto
+        </Link>
       </div>
       <div>
         <form className="meal-item-form">
