@@ -74,3 +74,67 @@
     color: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* distanza tra carrello e login/logout */
+    margin-right: 50px; /* distanza destra dalla fine header */
+  }
+  
+  /* Contenitore interno per testo e logout */
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Pulsante Accedi / Logout */
+  .login-btn,
+  .logout-btn {
+    background-color: rgb(77,22,1);
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+  
+  .login-btn:hover,
+  .logout-btn:hover {
+    background-color: rgb(103, 42, 19);
+  }
+  
+  /* Testo Ciao, <nome> */
+  .user-info span {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  body.light {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  body.dark {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  /* Stile pulsante toggle */
+  .theme-toggle-btn {
+    margin-left: 15px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(77,22,1);
+    color: white;
+  }
+  
+  .theme-toggle-btn:hover {
+    background-color: rgb(103,42,19);
+  }
+  

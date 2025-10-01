@@ -1,13 +1,18 @@
 import MealItem from './MealItem';
 import './MealList.css';
-import { DUMMY_MEALS } from "./MealList"
+import { useProducts } from "./ProductsContext"; 
 
 function MealList() {
-  const mealItems = DUMMY_MEALS.map((meal) => (
+  const { products, loading, error } = useProducts();
+
+  if (loading) return <p>Loading spinner...</p>;
+  if (error) return <p>Errore: {error}</p>;
+
+  const mealItems = products.map((meal) => (
     <MealItem
       key={meal.id}
-      id={meal.id}
-      name={meal.name}
+      id={meal.id.toString()}
+      name={meal.title}
       description={meal.description}
       price={meal.price}
     />

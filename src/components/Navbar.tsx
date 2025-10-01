@@ -1,15 +1,19 @@
 import './Navbar.css'; 
 import { NavLink } from "react-router-dom";
+import { useUserContext } from "./UserContext";
+import { useTheme } from "./ThemeContext";
 
 interface NavbarProps {
   cartItems: number;
   onShowCart?: () => void;
 }
 
-function Navbar(props: NavbarProps) {
-  const { cartItems, onShowCart } = props;
+function Navbar({ cartItems, onShowCart }: NavbarProps) {
+  const { user, login, logout } = useUserContext();
+  const { theme, toggleTheme } = useTheme();
 
-  const navClass = ({ isActive }: { isActive: boolean }) => (isActive ? 'active' : undefined);
+  const navClass = ({ isActive }: { isActive: boolean }) =>
+    isActive ? "active" : undefined;
 
   return (
     <header className="header">
@@ -29,10 +33,30 @@ function Navbar(props: NavbarProps) {
         </NavLink>
       </nav>
 
-      <button className="cart-button" onClick={onShowCart}>
-        <span>🛒 Your Cart</span>
-        <span className="badge">{cartItems}</span>
-      </button>
+      <div className="actions">
+        <button className="cart-button" onClick={onShowCart}>
+          <span>🛒 Your Cart</span>
+          <span className="badge">{cartItems}</span>
+        </button>
+
+        {/* gestione login/logout */}
+        {user ? (
+          <div className="user-info">
+            <span>Ciao, {user.name}</span>
+            <button onClick={logout} className="logout-btn">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <button onClick={() => login("Maria")} className="login-btn">
+            Accedi
+          </button>
+        )}
+        {/* toggle tema */}
+        <button onClick={toggleTheme} className="theme-toggle-btn">
+          {theme === "light" ? "🌞" : "🌙"}
+        </button>
+      </div>
     </header>
   );
 }
