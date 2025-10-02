@@ -6,10 +6,11 @@ import { useTheme } from "./ThemeContext";
 interface NavbarProps {
   cartItems: number;
   onShowCart?: () => void;
+  onShowRegistration: () => void;
 }
 
-function Navbar({ cartItems, onShowCart }: NavbarProps) {
-  const { user, login, logout } = useUserContext();
+function Navbar({ cartItems, onShowCart, onShowRegistration }: NavbarProps) {
+  const { user, logout } = useUserContext();
   const { theme, toggleTheme } = useTheme();
 
   const navClass = ({ isActive }: { isActive: boolean }) =>
@@ -48,7 +49,8 @@ function Navbar({ cartItems, onShowCart }: NavbarProps) {
             </button>
           </div>
         ) : (
-          <button onClick={() => login("Maria")} className="login-btn">
+          // Quando l'utente non è loggato, chiama la funzione per mostrare il form di registrazione
+          <button onClick={onShowRegistration} className="login-btn">
             Accedi
           </button>
         )}
